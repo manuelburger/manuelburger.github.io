@@ -1,0 +1,327 @@
+# Base Configuration
+baseURL = 'https://manuelburger.ch/'
+languageCode = 'en'
+defaultContentLanguage = "en"
+languageName = "English"
+hasCJKLanguage = false
+
+googleAnalytics = ""
+copyright = "Manuel Burger"
+
+# enableGitInfo = true
+enableEmoji = true
+
+# Theme/Style
+theme = 'LoveIt'
+
+# Data
+title = "Manuel Burger"
+
+[author]
+  name = "Manuel Burger"
+  email = ""
+  link = "https://manuelburger.ch/"
+
+
+[params]
+  defaultTheme = "light" # auto, dark
+#   gitRepo = "https://github.com/manuelburger/manuelburger.github.io"
+  dateFormat = "2006-01-02"
+  title = "Manuel Burger"
+  description = "Manuel Burger's Homepage"
+  images = ["/mbcreate_logo_small512.png"]
+
+  # Header config
+  [params.header]
+    desktopMode = "fixed"
+    mobileMode = "auto"
+    [params.header.title]
+      logo = "/mbcreate_logo_small512.png"
+      name = "Manuel Burger"
+      pre = "\t"
+    #   post = ""
+      typeit = false
+
+  # Footer config
+  [params.footer]
+    enable = true
+    custom = ""
+    hugo = false
+    copyright = true
+    author = true
+    since = 2022
+    # ICP info only in China (HTML format is supported)
+    # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
+    icp = ""
+    # license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+
+  # Section (all posts) page config
+  [params.section]
+    # special amount of posts in each section page
+    paginate = 20
+    # date format (month and day)
+    dateFormat = "01-02"
+
+  # List (category or tag) page config
+  [params.list]
+    paginate = 20
+    dateFormat = "01-02"
+
+  # Search config
+#   [params.search]
+#     enable = true
+#     type = "algolia"
+#     contentLength = 4000
+#     placeholder = ""
+#     maxResultLength = 10
+#     snippetLength = 30
+#     highlightTag = "em"
+#     absoluteURL = false
+#     [params.search.algolia]
+#       index = ""
+#       appID = ""
+#       searchKey = ""
+
+  # Home page config
+  [params.home]
+    # Home page profile
+    [params.home.profile]
+      enable = true
+      avatarURL = "/mbcreate_logo_small512.png"
+      # title shown in home page (HTML format is supported)
+      # 主页显示的网站标题 (支持 HTML 格式)
+      title = "PhD Student in Machine Learning"
+      subtitle = "With a Passion for the Biomedical Domain"
+      typeit = false
+      social = true
+      disclaimer = "Health Care, Biomedical Applications, Geometric Deep Learning, Time-Series"
+
+    # Home page posts
+    [params.home.posts]
+      enable = true
+      paginate = 6
+
+  # Social config in home page
+  # 主页的社交信息设置
+  [params.social]
+    GitHub = "https://github.com/manuelburger"
+    Linkedin = "https://www.linkedin.com/in/manuelburger-dev/"
+    Twitter = ""
+    Instagram = ""
+    Gitlab = ""
+    Youtubechannel = ""
+    Stackoverflow = ""
+    Googlescholar = ""
+    Mastodon = ""
+    ORCID = ""
+    Kaggle = ""
+    Email = ""
+
+      # Page global config
+  # 文章页面全局配置
+  [params.page]
+    # whether to hide a page from home page
+    hiddenFromHomePage = false
+    # whether to hide a page from search results
+    hiddenFromSearch = false
+    lightgallery = false
+    ruby = true
+    fraction = true
+    fontawesome = true
+    # whether to show link to Raw Markdown content of the content
+    linkToMarkdown = true
+    # Table of the contents config
+    [params.page.toc]
+      # whether to enable the table of the contents
+      enable = true
+      # whether to keep the static table of the contents in front of the post
+      keepStatic = false
+      # whether to make the table of the contents in the sidebar automatically collapsed
+      auto = true
+
+    # Code config
+    [params.page.code]
+      # whether to show the copy button of the code block
+      copy = true
+      # the maximum number of lines of displayed code by default
+      maxShownLines = 50
+
+    # KaTeX mathematical formulas config (KaTeX https://katex.org/)
+    [params.page.math]
+      enable = false
+      # default inline delimiter is $ ... $ and \( ... \)
+      inlineLeftDelimiter = ""
+      inlineRightDelimiter = ""
+      # default block delimiter is $$ ... $$, \[ ... \], \begin{equation} ... \end{equation} and some other functions
+      blockLeftDelimiter = ""
+      blockRightDelimiter = ""
+      # KaTeX extension copy_tex
+      copyTex = true
+      # KaTeX extension mhchem
+      mhchem = true
+
+    # Mapbox GL JS config (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
+    [params.page.mapbox]
+      # access token of Mapbox GL JS
+      accessToken = "pk.eyJ1IjoiZGlsbG9uenEiLCJhIjoiY2s2czd2M2x3MDA0NjNmcGxmcjVrZmc2cyJ9.aSjv2BNuZUfARvxRYjSVZQ"
+      # style for the light theme
+      lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
+      # style for the dark theme
+      darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
+      # whether to add NavigationControl (https://docs.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
+      navigation = true
+      # whether to add GeolocateControl (https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
+      geolocate = true
+      # whether to add ScaleControl (https://docs.mapbox.com/mapbox-gl-js/api/#scalecontrol)
+      scale = true
+      # whether to add FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
+      fullscreen = true
+
+    # Social share links in post page
+    [params.page.share]
+      enable = true
+      Twitter = true
+      Linkedin = true
+      Whatsapp = true
+
+    # Third-party library config
+    [params.page.library]
+      [params.page.library.css]
+        # someCSS = "some.css"
+        # located in "assets/" 位于 "assets/"
+        # Or 或者
+        # someCSS = "https://cdn.example.com/some.css"
+      [params.page.library.js]
+        # someJavascript = "some.js"
+        # located in "assets/" 位于 "assets/"
+        # Or 或者
+        # someJavascript = "https://cdn.example.com/some.js"
+
+    # Page SEO config
+    # [params.page.seo]
+    #   # image URL
+    #   images = []
+    #   # Publisher info
+    #   [params.page.seo.publisher]
+    #     name = "xxxx"
+    #     logoUrl = "/images/avatar.png"
+
+  # TypeIt config
+  # TypeIt 配置
+  [params.typeit]
+    # typing speed between each step (measured in milliseconds)
+    speed = 100
+    # blinking speed of the cursor (measured in milliseconds)
+    cursorSpeed = 1000
+    # character used for the cursor (HTML format is supported)
+    cursorChar = "|"
+    # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
+    duration = -1
+
+  # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
+  [params.verification]
+    google = ""
+
+  # Site SEO config
+#   [params.seo]
+#     # image URL
+#     image = "/images/Apple-Devices-Preview.png"
+#     # thumbnail URL
+#     thumbnailUrl = "/images/screenshot.png"
+
+#   Analytics config
+#   [params.analytics]
+#     enable = false
+#     # Google Analytics
+#     [params.analytics.google]
+#       id = ""
+#       # whether to anonymize IP
+#       anonymizeIP = true
+
+  # Cookie consent config
+  # Cookie 许可配置
+  [params.cookieconsent]
+    enable = false
+    # text strings used for Cookie consent banner
+    [params.cookieconsent.content]
+      message = ""
+      dismiss = ""
+      link = ""
+
+#   # Compatibility config
+#   [params.compatibility]
+#     # whether to use Polyfill.io to be compatible with older browsers
+#     polyfill = false
+#     # whether to use object-fit-images to be compatible with older browsers
+#     objectFit = false
+
+# Markup related configuration in Hugo
+# Hugo 解析文档的配置
+[markup]
+  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = true
+    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
+    noClasses = false
+
+  # Goldmark is from Hugo 0.60 the default library used for Markdown
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+      # whether to use HTML tags directly in the document
+      unsafe = true
+
+  # Table Of Contents settings
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6
+
+# Sitemap config
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+# Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
+[Permalinks]
+  # posts = ":year/:month/:filename"
+  posts = ":filename"
+
+# Privacy config (https://gohugo.io/about/hugo-and-gdpr/)
+[privacy]
+  # privacy of the Google Analytics (replaced by params.analytics.google)
+  [privacy.googleAnalytics]
+    # ...
+  [privacy.twitter]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
+
+# Options to make output .md files
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["md"]
+
+# Options to make output .md files
+[outputFormats.MarkDown]
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
+
+# Options to make hugo output files
+# [outputs]
+#   home = ["HTML", "RSS", "JSON"]
+#   page = ["HTML", "MarkDown"]
+#   section = ["HTML", "RSS"]
+#   taxonomy = ["HTML", "RSS"]
+#   taxonomyTerm = ["HTML"]
