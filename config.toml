@@ -104,8 +104,8 @@ title = "Manuel Burger"
   # Social config in home page
   # 主页的社交信息设置
   [params.social]
-    GitHub = "https://github.com/manuelburger"
-    Linkedin = "https://www.linkedin.com/in/manuelburger-dev/"
+    GitHub = "manuelburger"
+    Linkedin = "manuelburger-dev"
     Twitter = ""
     Instagram = ""
     Gitlab = ""
