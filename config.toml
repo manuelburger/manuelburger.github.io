@@ -23,6 +23,19 @@ title = "Manuel Burger"
   link = "https://manuelburger.ch/"
 
 
+# Menu config
+[menu]
+  [[menu.main]]
+    weight = 1
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About"
+    url = "/about/"
+    title = ""
+
+
+
 [params]
   defaultTheme = "light" # auto, dark
 #   gitRepo = "https://github.com/manuelburger/manuelburger.github.io"
