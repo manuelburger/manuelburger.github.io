@@ -27,7 +27,7 @@ revolve around, but not exclusively:
 - Time-Series Modeling
 - Geometric Deep Learing and Graph Neural Networks
 - Self-Supervised Learning; especially for GNNs and Time-Series
-- Knowledge Extraction and Representaton Learning thereof
+- Knowledge Extraction and Representation Learning thereof
 - Transfer Learning for medical data
 
 ## Education
