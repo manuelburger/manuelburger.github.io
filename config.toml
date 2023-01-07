@@ -33,6 +33,15 @@ title = "Manuel Burger"
     name = "About"
     url = "/about/"
     title = ""
+  [[menu.main]]
+    weight = 2
+    identifier = "posts"
+    pre = ""
+    post = ""
+    name = "Posts"
+    url = "/posts/"
+    title = ""
+
 
 
 
@@ -192,10 +201,30 @@ title = "Manuel Burger"
 
     # Social share links in post page
     [params.page.share]
-      enable = true
+      enable = false
       Twitter = true
+      Facebook = false
       Linkedin = true
       Whatsapp = true
+      Pinterest = false
+      Tumblr = false
+      HackerNews = false
+      Reddit = false
+      VK = false
+      Buffer = false
+      Xing = false
+      Line = false
+      Instapaper = false
+      Pocket = false
+      Flipboard = false
+      Weibo = false
+      Blogger = false
+      Baidu = false
+      Odnoklassniki = false
+      Evernote = false
+      Skype = false
+      Trello = false
+      Mix = false
 
     # Third-party library config
     [params.page.library]
