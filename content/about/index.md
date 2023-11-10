@@ -20,15 +20,16 @@ and learn more about open project proposals [here](https://bmi.inf.ethz.ch/bsc-m
 ## Interests
 
 I am interested in applications for clinical decision support, predictive modeling
-in the clinical setting (e.g. Intensive Care Units), as well as developing better
-understanding of biological sequence data. For this, my interests in machine learning
+in the clinical setting (e.g. Intensive Care Units), and scientific discovery by means
+of data analysis and machine learning. For this, my interests in machine learning
 revolve around, but not exclusively:
 
 - Time-Series Modeling
-- Geometric Deep Learing and Graph Neural Networks
 - Self-Supervised Learning; especially for GNNs and Time-Series
 - Knowledge Extraction and Representation Learning thereof
-- Transfer Learning for medical data
+- Transfer Learning in the Clinical Domain
+- Graph Neural Networks
+- Natural Language Processing
 
 ## Education
 

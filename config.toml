@@ -116,7 +116,7 @@ title = "Manuel Burger"
       subtitle = "With a Passion for the Biomedical Domain"
       typeit = false
       social = true
-      disclaimer = "Health Care, Biomedical Applications, Geometric Deep Learning, Time-Series"
+      disclaimer = "Health Care, Biomedical Applications, Time-Series, Graph Neural Networks"
 
     # Home page posts
     [params.home.posts]
