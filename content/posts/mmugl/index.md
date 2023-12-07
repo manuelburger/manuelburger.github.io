@@ -44,7 +44,7 @@ seo:
   # ...
 ---
 
-- **Paper**: https://arxiv.org/abs/2307.04461
+- **Paper**: https://proceedings.mlr.press/v225/burger23a.html
 - **GitHub**: https://github.com/ratschlab/mmugl
 
 ## Abstract 
@@ -64,6 +64,26 @@ Beyond performance improvements we also ascertain the interpretability of our mo
 {{< imgproc "explanation-septic-shock" "resize x400 Lanczos webp drawing q100" >}}
 Subgraph relevant for the concept of Septic Shock (Sepsis-associated hypotension, UMLS C0036983) extracted using GNNExplainer (Ying et al., 2019). Edge thickness corresponds to the edge weight computed by GNNExplainer and the expla- nation is a reduction of 9932 nodes in a 3-hop neigh- borhood to 23 related nodes.
 {{</ imgproc >}}
+
+## Citation
+
+```bibtex
+
+@InProceedings{pmlr-v225-burger23a,
+  title = 	 {Multi-modal Graph Learning over UMLS Knowledge Graphs},
+  author =       {Burger, Manuel and R\"atsch, Gunnar and Kuznetsova, Rita},
+  booktitle = 	 {Proceedings of the 3rd Machine Learning for Health Symposium},
+  pages = 	 {52--81},
+  year = 	 {2023},
+  editor = 	 {Hegselmann, Stefan and Parziale, Antonio and Shanmugam, Divya and Tang, Shengpu and Asiedu, Mercy Nyamewaa and Chang, Serina and Hartvigsen, Tom and Singh, Harvineet},
+  volume = 	 {225},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {10 Dec},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v225/burger23a/burger23a.pdf},
+  url = 	 {https://proceedings.mlr.press/v225/burger23a.html}
+}
+```
 
 
 
