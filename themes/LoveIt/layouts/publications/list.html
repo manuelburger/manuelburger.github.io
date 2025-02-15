@@ -1,0 +1,54 @@
+{{- define "title" -}}
+    {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page archive mt-3">
+        {{- /* Title */ -}}
+        <h2 class="single-title animate__animated animate__pulse animate__faster">
+            {{ .Title }}
+        </h2>
+
+        {{- /* Paginate */ -}}
+        {{- if .Pages -}}
+            {{- $pages := .Pages.GroupByDate "2006" -}}
+            {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
+                {{- $pages = $.Paginate $pages . -}}
+            {{- else -}}
+                {{- $pages = .Paginate $pages -}}
+            {{- end -}}
+            {{- range $pages.PageGroups -}}
+                <h3 class="group-title">{{ .Key }}</h3>
+                {{- range .Pages -}}
+                    <!-- <article class="archive-item"> -->
+                        <div class="container-fluid pb-4">
+                            <div class="row">
+                                <div class="col-9 text-start">
+                                    <div class="text-wrap">
+                                        <a href="{{ .Params.publicationLink }}" class="text-wrap">
+                                            <span style="font-weight: bold;">
+                                                {{- .Title | emojify -}}
+                                            </span>
+                                        </a>
+                                        <span style="font-style: italic; font-weight: bold; color:darkcyan">
+                                                {{ if .Params.annotation }}({{ .Params.annotation }}){{ end }}
+                                        </span>
+                                        <br>
+                                        <span style="color: grey;">{{ .Params.authorList }}</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-3 text-end">
+                                    <span style="color: grey">
+                                        {{ .Params.publicationVenue }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- </article> -->
+                {{- end -}}
+            {{- end -}}
+            {{- partial "paginator.html" . -}}
+        {{- end -}}
+    </div>
+{{- end -}}

@@ -9,9 +9,8 @@ lightgallery: true
 # Welcome to my Homepage
 
 I am a PhD student in machine learning and passionate about biomedical applications and health care
-solutions. My aim is to improve predictive performance of machine learning
-models in the biomedical domain by building on existing prior knowledge and facilitating
-the use of this knowledge in our modeling approaches.
+solutions. I am driven to solve challenging health care problems with machine learing to advance
+patient care and clinical decision making.
 
 I joined the [Biomedical Informatics Group](https://bmi.inf.ethz.ch) at
 ETH Zürich in 2022. Get in touch here [here](https://bmi.inf.ethz.ch/people/person/manuel-burger)
@@ -25,11 +24,11 @@ of data analysis and machine learning. For this, my interests in machine learnin
 revolve around, but not exclusively:
 
 - Time-Series Modeling
-- Self-Supervised Learning; especially for GNNs and Time-Series
+- Self-Supervised Learning; especially for Time-Series and Graph-strucutred Data
 - Knowledge Extraction and Representation Learning thereof
 - Transfer Learning in the Clinical Domain
-- Graph Neural Networks
 - Natural Language Processing
+- Graph Neural Networks
 
 ## Education
 

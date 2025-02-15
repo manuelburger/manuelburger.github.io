@@ -34,6 +34,14 @@ title = "Manuel Burger"
     url = "/about/"
     title = ""
   [[menu.main]]
+    weight = 1
+    identifier = "publications"
+    pre = ""
+    post = ""
+    name = "Publications"
+    url = "/publications/"
+    title = ""
+  [[menu.main]]
     weight = 2
     identifier = "posts"
     pre = ""
@@ -113,10 +121,10 @@ title = "Manuel Burger"
       # title shown in home page (HTML format is supported)
       # 主页显示的网站标题 (支持 HTML 格式)
       title = "PhD Student in Machine Learning"
-      subtitle = "With a Passion for the Biomedical Domain"
+      subtitle = "Driven to solve challenging health care problems with machine learning solutions"
       typeit = false
       social = true
-      disclaimer = "Health Care, Biomedical Applications, Time-Series, Graph Neural Networks"
+      # disclaimer = "Health Care, Biomedical Applications, Time-Series, Graph Neural Networks"
 
     # Home page posts
     [params.home.posts]
