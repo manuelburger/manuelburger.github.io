@@ -126,6 +126,11 @@ title = "Manuel Burger"
       social = true
       # disclaimer = "Health Care, Biomedical Applications, Time-Series, Graph Neural Networks"
 
+    # Home page publications
+    [params.home.publications]
+      enable = true
+      paginate = 3
+
     # Home page posts
     [params.home.posts]
       enable = true

@@ -3,7 +3,7 @@ title: "Multi-modal Graph Learning over UMLS Knowledge Graphs"
 date: 2023-11-09T18:01:40+01:00
 lastmod: 2023-11-09T18:01:40+01:00
 draft: false
-author: ""
+author: "Manuel Burger"
 authorLink: ""
 description: "Clinicians are increasingly looking towards machine learning to gain insights about patient evolutions. We propose a novel approach named Multi-Modal UMLS Graph Learning (MMUGL) for learning meaningful representations of medical concepts using graph neural networks over knowledge graphs based on the unified medical language system. These representations are aggregated to represent entire patient visits and then fed into a sequence model to perform predictions at the granularity of multiple hospital visits of a patient. We improve performance by incorporating prior medical knowledge and considering multiple modalities. We compare our method to existing architectures proposed to learn representations at different granularities on the MIMIC-III dataset and show that our approach outperforms these methods. The results demonstrate the significance of multi-modal medical concept representations based on prior medical knowledge."
 license: ""

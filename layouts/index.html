@@ -1,0 +1,131 @@
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    {{- $profile := .Site.Params.home.profile -}}
+    {{- $publications := .Site.Params.home.publications -}}
+    {{- $posts := .Site.Params.home.posts -}}
+
+    <style>
+        .home-section-profile {
+            padding: 3rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .home-section-publications {
+            background-color: #f8f8f8;
+            padding: 2.5rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .home-section-posts {
+            background-color: #f8f8f8;
+            padding: 2.5rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        /* Dark mode support */
+        [theme=dark] .home-section-publications {
+            background-color: #353535;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        [theme=dark] .home-section-posts {
+            background-color: #353535;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+    </style>
+
+    <div class="page home"{{ if ne $posts.enable false }} data-home="posts"{{ end }}>
+        {{- /* Profile Section */ -}}
+        {{- if ne $profile.enable false -}}
+            <div class="home-section-profile">
+                {{- partial "home/profile.html" . -}}
+            </div>
+        {{- end -}}
+
+        {{- /* Content */ -}}
+        {{- if .Content -}}
+            <div class="single">
+                <div class="content" id="content">
+                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                </div>
+            </div>
+        {{- end -}}
+
+        {{- /* Publications Section */ -}}
+        {{- if ne $publications.enable false -}}
+            {{- $pubPages := where .Site.RegularPages "Type" "publications" -}}
+            {{- if .Site.Params.page.hiddenFromHomePage -}}
+                {{- $pubPages = where $pubPages "Params.hiddenfromhomepage" false -}}
+            {{- else -}}
+                {{- $pubPages = where $pubPages "Params.hiddenfromhomepage" "!=" true -}}
+            {{- end -}}
+            {{- $pubPages = $pubPages.ByDate.Reverse -}}
+            {{- $pubPages = $pubPages | first ($publications.paginate | default 5) -}}
+            {{- if $pubPages -}}
+                <div class="home-section-publications">
+                    <h2 class="single-title animate__animated animate__pulse animate__faster" style="font-size: 2.5rem; margin-bottom: 1.5rem;">
+                        Recent Publications
+                    </h2>
+                    {{- range $pubPages -}}
+                        <div class="container-fluid pb-4">
+                            <div class="row">
+                                <div class="col-sm-9 text-start">
+                                    <div class="text-wrap">
+                                        <a href="{{ .Params.publicationLink }}" class="text-wrap">
+                                            <span style="font-weight: bold;">
+                                                {{- .Title | emojify -}}
+                                            </span>
+                                        </a>
+                                        {{- if .Params.annotation -}}
+                                            <span style="font-style: italic; font-weight: bold; color:darkcyan">
+                                                ({{ .Params.annotation }})
+                                            </span>
+                                        {{- end -}}
+                                        <br>
+                                        <span style="color: grey;">{{ .Params.authorList }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 text-md-end text-sm-left">
+                                    <span style="color: #6c7a89">
+                                        {{ .Params.publicationVenue }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    {{- end -}}
+                    {{- with .Site.GetPage "/publications" -}}
+                        <div class="text-center mt-4 mb-2">
+                            <a href="{{ .RelPermalink }}" class="btn" style="background-color: darkcyan; color: white;">{{ T "viewAll" | default "View All" }}</a>
+                        </div>
+                    {{- end -}}
+                </div>
+            {{- end -}}
+        {{- end -}}
+
+        {{- /* Posts Section */ -}}
+        {{- if ne $posts.enable false | and .Site.RegularPages -}}
+            <div class="home-section-posts">
+                <h2 class="single-title" style="font-size: 2.5rem; margin-bottom: -2rem;">
+                    Recent Posts
+                </h2>
+                {{- /* Paginate */ -}}
+                {{- $pages := where .Site.RegularPages "Type" "posts" -}}
+                {{- if .Site.Params.page.hiddenFromHomePage -}}
+                    {{- $pages = where $pages "Params.hiddenfromhomepage" false -}}
+                {{- else -}}
+                    {{- $pages = where $pages "Params.hiddenfromhomepage" "!=" true -}}
+                {{- end -}}
+                {{- with $posts.paginate | default .Site.Params.paginate -}}
+                    {{- $pages = $.Paginate $pages . -}}
+                {{- else -}}
+                    {{- $pages = .Paginate $pages -}}
+                {{- end -}}
+                {{- range $pages.Pages -}}
+                    {{- .Render "summary" -}}
+                {{- end -}}
+                {{- partial "paginator.html" . -}}
+            </div>
+        {{- end -}}
+    </div>
+{{- end -}}
+
