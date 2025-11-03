@@ -1,5 +1,5 @@
 ---
-title: "Towards Foundation Models for Critical Care Time Series"
+title: "A Foundation Model for Intensive Care: Unlocking Generalization across Tasks and Domains at Scale"
 date: 2025-11-03T00:00:00+01:00
 lastmod: 2025-11-03T00:22:29+01:00
 draft: false
