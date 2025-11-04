@@ -11,7 +11,7 @@ images: []
 
 annotation: "Spotlight at ML4H Findings Track and invited talk for AI in Medicine at BIFOLD Institute"
 authorList: "Manuel Burger, Daphné Chopard, Malte Londschien, Fedor Sergeev, Hugo Yèche, Rita Kuznetsova, Martin Faltys, Eike Gerdes, Polina Leshetkina, Peter Bühlmann, Gunnar Rätsch"
-publicationLink: "https://www.medrxiv.org/content/10.1101/2025.07.25.25331635v"
+publicationLink: "https://www.medrxiv.org/content/10.1101/2025.07.25.25331635"
 publicationVenue: "Working Paper on medRxiv"
 
 tags: []
