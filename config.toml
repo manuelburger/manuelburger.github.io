@@ -34,7 +34,7 @@ title = "Manuel Burger"
     url = "/about/"
     title = ""
   [[menu.main]]
-    weight = 1
+    weight = 2
     identifier = "publications"
     pre = ""
     post = ""
@@ -42,7 +42,23 @@ title = "Manuel Burger"
     url = "/publications/"
     title = ""
   [[menu.main]]
-    weight = 2
+    weight = 3
+    identifier = "talks"
+    pre = ""
+    post = ""
+    name = "Talks"
+    url = "/talks/"
+    title = ""
+  [[menu.main]]
+    weight = 4
+    identifier = "awards"
+    pre = ""
+    post = ""
+    name = "Awards"
+    url = "/awards/"
+    title = ""
+  [[menu.main]]
+    weight = 5
     identifier = "posts"
     pre = ""
     post = ""
@@ -128,6 +144,16 @@ title = "Manuel Burger"
 
     # Home page publications
     [params.home.publications]
+      enable = true
+      paginate = 3
+
+    # Home page awards
+    [params.home.awards]
+      enable = true
+      paginate = 3
+
+    # Home page talks
+    [params.home.talks]
       enable = true
       paginate = 3
 

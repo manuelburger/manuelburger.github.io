@@ -1,0 +1,88 @@
+{{- define "title" -}}
+    {{- .Title }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page archive mt-3">
+        {{- /* Title */ -}}
+        <h2 class="single-title animate__animated animate__pulse animate__faster">
+            <i class="fas fa-microphone-alt" style="color: #6c7a89; margin-right: 0.5rem; font-size: 0.8em;"></i>
+            {{ .Title }}
+        </h2>
+
+        <style>
+            .talks-grid {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 1rem 1.5rem;
+                align-items: start;
+            }
+            .talk-badge-cell {
+                justify-self: center;
+            }
+            .talks-year-header {
+                grid-column: 1 / -1;
+                margin-top: 1rem;
+            }
+            .talks-year-header:first-child {
+                margin-top: 0;
+            }
+        </style>
+
+        {{- /* Paginate */ -}}
+        {{- if .Pages -}}
+            {{- $pages := .Pages.GroupByDate "2006" -}}
+            {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
+                {{- $pages = $.Paginate $pages . -}}
+            {{- else -}}
+                {{- $pages = .Paginate $pages -}}
+            {{- end -}}
+            <div class="talks-grid">
+                {{- range $pages.PageGroups -}}
+                    <h3 class="group-title talks-year-header">{{ .Key }}</h3>
+                    {{- range .Pages -}}
+                        <div class="talk-badge-cell">
+                            <span class="talk-badge" style="background-color: #e8e8e8; color: #555; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block;">
+                                {{ .Params.talkType | default "Talk" }}
+                            </span>
+                        </div>
+                        <div class="talk-content">
+                            <span style="font-weight: bold; font-size: 1.1rem;">
+                                {{- .Title | emojify -}}
+                            </span>
+                            <br>
+                            <span style="color: darkcyan; font-weight: 500;">
+                                {{ .Params.event }}
+                            </span>
+                            <br>
+                            <span style="color: #6c7a89;">
+                                <i class="fas fa-map-marker-alt" style="margin-right: 0.25rem;"></i>
+                                {{ .Params.venue }}{{ if .Params.location }}, {{ .Params.location }}{{ end }}
+                            </span>
+                            {{- if .Params.description -}}
+                                <br>
+                                <span style="color: grey; font-size: 0.95rem;">{{ .Params.description }}</span>
+                            {{- end -}}
+                            {{- if or .Params.slidesLink .Params.videoLink -}}
+                                <br>
+                                <span style="margin-top: 0.5rem; display: inline-block;">
+                                    {{- if .Params.slidesLink -}}
+                                        <a href="{{ .Params.slidesLink }}" target="_blank" style="margin-right: 1rem;">
+                                            <i class="fas fa-file-powerpoint"></i> Slides
+                                        </a>
+                                    {{- end -}}
+                                    {{- if .Params.videoLink -}}
+                                        <a href="{{ .Params.videoLink }}" target="_blank">
+                                            <i class="fas fa-video"></i> Video
+                                        </a>
+                                    {{- end -}}
+                                </span>
+                            {{- end -}}
+                        </div>
+                    {{- end -}}
+                {{- end -}}
+            </div>
+            {{- partial "paginator.html" . -}}
+        {{- end -}}
+    </div>
+{{- end -}}
