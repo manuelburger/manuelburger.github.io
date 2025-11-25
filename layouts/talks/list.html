@@ -14,18 +14,65 @@
             .talks-grid {
                 display: grid;
                 grid-template-columns: auto 1fr;
-                gap: 1rem 1.5rem;
-                align-items: start;
-            }
-            .talk-badge-cell {
-                justify-self: center;
+                gap: 0;
+                align-items: stretch;
             }
             .talks-year-header {
                 grid-column: 1 / -1;
-                margin-top: 1rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.5rem;
             }
             .talks-year-header:first-child {
                 margin-top: 0;
+            }
+            .talk-row {
+                display: contents;
+            }
+            .talk-row .talk-badge-cell {
+                padding: 1rem 2rem 1rem 0;
+                border-bottom: 1px solid rgba(0,0,0,0.08);
+            }
+            .talk-row .talk-content {
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(0,0,0,0.08);
+            }
+            .talk-row:last-child .talk-badge-cell,
+            .talk-row:last-child .talk-content {
+                border-bottom: none;
+            }
+            [theme=dark] .talk-row .talk-badge-cell,
+            [theme=dark] .talk-row .talk-content {
+                border-bottom-color: rgba(255,255,255,0.1);
+            }
+            .talk-badge-cell {
+                display: flex;
+                align-items: flex-start;
+            }
+            @media (max-width: 576px) {
+                .talks-grid {
+                    grid-template-columns: 1fr;
+                }
+                .talk-row {
+                    display: block;
+                    padding: 1rem 0;
+                    border-bottom: 1px solid rgba(0,0,0,0.08);
+                }
+                .talk-row:last-child {
+                    border-bottom: none;
+                }
+                [theme=dark] .talk-row {
+                    border-bottom-color: rgba(255,255,255,0.1);
+                }
+                .talk-row .talk-badge-cell,
+                .talk-row .talk-content {
+                    padding: 0;
+                    border-bottom: none;
+                }
+                .talk-badge-cell {
+                    display: block;
+                    padding-right: 0;
+                    margin-bottom: 0.75rem;
+                }
             }
         </style>
 
@@ -41,43 +88,45 @@
                 {{- range $pages.PageGroups -}}
                     <h3 class="group-title talks-year-header">{{ .Key }}</h3>
                     {{- range .Pages -}}
-                        <div class="talk-badge-cell">
-                            <span class="talk-badge" style="background-color: #e8e8e8; color: #555; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block;">
-                                {{ .Params.talkType | default "Talk" }}
-                            </span>
-                        </div>
-                        <div class="talk-content">
-                            <span style="font-weight: bold; font-size: 1.1rem;">
-                                {{- .Title | emojify -}}
-                            </span>
-                            <br>
-                            <span style="color: darkcyan; font-weight: 500;">
-                                {{ .Params.event }}
-                            </span>
-                            <br>
-                            <span style="color: #6c7a89;">
-                                <i class="fas fa-map-marker-alt" style="margin-right: 0.25rem;"></i>
-                                {{ .Params.venue }}{{ if .Params.location }}, {{ .Params.location }}{{ end }}
-                            </span>
-                            {{- if .Params.description -}}
-                                <br>
-                                <span style="color: grey; font-size: 0.95rem;">{{ .Params.description }}</span>
-                            {{- end -}}
-                            {{- if or .Params.slidesLink .Params.videoLink -}}
-                                <br>
-                                <span style="margin-top: 0.5rem; display: inline-block;">
-                                    {{- if .Params.slidesLink -}}
-                                        <a href="{{ .Params.slidesLink }}" target="_blank" style="margin-right: 1rem;">
-                                            <i class="fas fa-file-powerpoint"></i> Slides
-                                        </a>
-                                    {{- end -}}
-                                    {{- if .Params.videoLink -}}
-                                        <a href="{{ .Params.videoLink }}" target="_blank">
-                                            <i class="fas fa-video"></i> Video
-                                        </a>
-                                    {{- end -}}
+                        <div class="talk-row">
+                            <div class="talk-badge-cell">
+                                <span class="talk-badge" style="background-color: #e8e8e8; color: #555; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block;">
+                                    {{ .Params.talkType | default "Talk" }}
                                 </span>
-                            {{- end -}}
+                            </div>
+                            <div class="talk-content">
+                                <span style="font-weight: bold; font-size: 1.1rem;">
+                                    {{- .Title | emojify -}}
+                                </span>
+                                <br>
+                                <span style="color: darkcyan; font-weight: 500;">
+                                    {{ .Params.event }}
+                                </span>
+                                <br>
+                                <span style="color: #6c7a89;">
+                                    <i class="fas fa-map-marker-alt" style="margin-right: 0.25rem;"></i>
+                                    {{ .Params.venue }}{{ if .Params.location }}, {{ .Params.location }}{{ end }}
+                                </span>
+                                {{- if .Params.description -}}
+                                    <br>
+                                    <span style="color: grey; font-size: 0.95rem;">{{ .Params.description }}</span>
+                                {{- end -}}
+                                {{- if or .Params.slidesLink .Params.videoLink -}}
+                                    <br>
+                                    <span style="margin-top: 0.5rem; display: inline-block;">
+                                        {{- if .Params.slidesLink -}}
+                                            <a href="{{ .Params.slidesLink }}" target="_blank" style="margin-right: 1rem;">
+                                                <i class="fas fa-file-powerpoint"></i> Slides
+                                            </a>
+                                        {{- end -}}
+                                        {{- if .Params.videoLink -}}
+                                            <a href="{{ .Params.videoLink }}" target="_blank">
+                                                <i class="fas fa-video"></i> Video
+                                            </a>
+                                        {{- end -}}
+                                    </span>
+                                {{- end -}}
+                            </div>
                         </div>
                     {{- end -}}
                 {{- end -}}

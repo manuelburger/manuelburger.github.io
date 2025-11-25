@@ -14,18 +14,65 @@
             .awards-grid {
                 display: grid;
                 grid-template-columns: auto 1fr;
-                gap: 1rem 1.5rem;
-                align-items: start;
-            }
-            .award-badge-cell {
-                justify-self: center;
+                gap: 0;
+                align-items: stretch;
             }
             .awards-year-header {
                 grid-column: 1 / -1;
-                margin-top: 1rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.5rem;
             }
             .awards-year-header:first-child {
                 margin-top: 0;
+            }
+            .award-row {
+                display: contents;
+            }
+            .award-row .award-badge-cell {
+                padding: 1rem 2rem 1rem 0;
+                border-bottom: 1px solid rgba(0,0,0,0.08);
+            }
+            .award-row .award-content {
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(0,0,0,0.08);
+            }
+            .award-row:last-child .award-badge-cell,
+            .award-row:last-child .award-content {
+                border-bottom: none;
+            }
+            [theme=dark] .award-row .award-badge-cell,
+            [theme=dark] .award-row .award-content {
+                border-bottom-color: rgba(255,255,255,0.1);
+            }
+            .award-badge-cell {
+                display: flex;
+                align-items: flex-start;
+            }
+            @media (max-width: 576px) {
+                .awards-grid {
+                    grid-template-columns: 1fr;
+                }
+                .award-row {
+                    display: block;
+                    padding: 1rem 0;
+                    border-bottom: 1px solid rgba(0,0,0,0.08);
+                }
+                .award-row:last-child {
+                    border-bottom: none;
+                }
+                [theme=dark] .award-row {
+                    border-bottom-color: rgba(255,255,255,0.1);
+                }
+                .award-row .award-badge-cell,
+                .award-row .award-content {
+                    padding: 0;
+                    border-bottom: none;
+                }
+                .award-badge-cell {
+                    display: block;
+                    padding-right: 0;
+                    margin-bottom: 0.75rem;
+                }
             }
         </style>
 
@@ -41,24 +88,26 @@
                 {{- range $pages.PageGroups -}}
                     <h3 class="group-title awards-year-header">{{ .Key }}</h3>
                     {{- range .Pages -}}
-                        <div class="award-badge-cell">
-                            <span class="award-badge" style="background-color: #e8e8e8; color: #555; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block;">
-                                {{ .Params.awardType | default "Award" }}
-                            </span>
-                        </div>
-                        <div class="award-content">
-                            <span style="font-weight: bold; font-size: 1.1rem;">
-                                {{- .Title | emojify -}}
-                            </span>
-                            <br>
-                            <span style="color: #6c7a89;">
-                                <i class="fas fa-map-marker-alt" style="margin-right: 0.25rem;"></i>
-                                {{ .Params.venue }}
-                            </span>
-                            {{- if .Params.description -}}
+                        <div class="award-row">
+                            <div class="award-badge-cell">
+                                <span class="award-badge" style="background-color: #e8e8e8; color: #555; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block;">
+                                    {{ .Params.awardType | default "Award" }}
+                                </span>
+                            </div>
+                            <div class="award-content">
+                                <span style="font-weight: bold; font-size: 1.1rem;">
+                                    {{- .Title | emojify -}}
+                                </span>
                                 <br>
-                                <span style="color: grey; font-size: 0.95rem;">{{ .Params.description }}</span>
-                            {{- end -}}
+                                <span style="color: #6c7a89;">
+                                    <i class="fas fa-map-marker-alt" style="margin-right: 0.25rem;"></i>
+                                    {{ .Params.venue }}
+                                </span>
+                                {{- if .Params.description -}}
+                                    <br>
+                                    <span style="color: grey; font-size: 0.95rem;">{{ .Params.description }}</span>
+                                {{- end -}}
+                            </div>
                         </div>
                     {{- end -}}
                 {{- end -}}

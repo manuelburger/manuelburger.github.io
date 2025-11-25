@@ -2,3 +2,9 @@
 // Custom Styles
 // (Add CSS overrides here)
 // ==============================
+
+// Reduce navbar logo size
+header .logo {
+  min-height: 1.2em;
+  height: 1.2em;
+}

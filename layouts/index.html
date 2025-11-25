@@ -31,12 +31,65 @@
         }
         .home-awards-grid, .home-talks-grid {
             display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 0.75rem 1.5rem;
-            align-items: center;
+            grid-template-columns: auto 1fr;
+            gap: 0;
+            align-items: start;
+        }
+        .home-grid-row {
+            display: contents;
+        }
+        .home-grid-row .home-badge-cell,
+        .home-grid-row .home-content-cell {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .home-grid-row:last-child .home-badge-cell,
+        .home-grid-row:last-child .home-content-cell {
+            border-bottom: none;
+        }
+        [theme=dark] .home-grid-row .home-badge-cell,
+        [theme=dark] .home-grid-row .home-content-cell {
+            border-bottom-color: rgba(255,255,255,0.1);
         }
         .home-badge-cell {
             justify-self: center;
+            padding-right: 1.5rem;
+        }
+        .home-content-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .home-date-cell {
+            font-size: 0.85rem;
+            color: #6c7a89;
+            margin-top: 0.25rem;
+        }
+        @media (max-width: 576px) {
+            .home-awards-grid, .home-talks-grid {
+                grid-template-columns: 1fr;
+            }
+            .home-grid-row {
+                display: block;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(0,0,0,0.08);
+            }
+            .home-grid-row:last-child {
+                border-bottom: none;
+            }
+            [theme=dark] .home-grid-row {
+                border-bottom-color: rgba(255,255,255,0.1);
+            }
+            .home-grid-row .home-badge-cell,
+            .home-grid-row .home-content-cell {
+                padding: 0;
+                border-bottom: none;
+            }
+            .home-badge-cell {
+                justify-self: start;
+                padding-right: 0;
+                margin-bottom: 0.5rem;
+            }
         }
         .home-post-card {
             display: flex;
@@ -251,23 +304,28 @@
                     </h2>
                     <div class="home-talks-grid">
                         {{- range $talkPages -}}
-                            <div class="home-badge-cell">
-                                <span style="background-color: #e8e8e8; color: #555; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block;">
-                                    {{ .Params.talkType | default "Talk" }}
-                                </span>
-                            </div>
-                            <div>
-                                <span style="font-weight: bold;">
-                                    {{- .Title | emojify -}}
-                                </span>
-                                <br>
-                                <span style="color: darkcyan;">{{ .Params.event }}</span>
-                                <span style="color: #6c7a89;">
-                                    @ {{ .Params.venue }}{{ if .Params.location }}, {{ .Params.location }}{{ end }}
-                                </span>
-                            </div>
-                            <div class="text-muted">
-                                {{ .Date.Format "Jan 2006" }}
+                            <div class="home-grid-row">
+                                <div class="home-badge-cell">
+                                    <span style="background-color: #e8e8e8; color: #555; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block;">
+                                        {{ .Params.talkType | default "Talk" }}
+                                    </span>
+                                </div>
+                                <div class="home-content-cell">
+                                    <div>
+                                        <span style="font-weight: bold;">
+                                            {{- .Title | emojify -}}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span style="color: darkcyan;">{{ .Params.event }}</span>
+                                        <span style="color: #6c7a89;">
+                                            @ {{ .Params.venue }}{{ if .Params.location }}, {{ .Params.location }}{{ end }}
+                                        </span>
+                                    </div>
+                                    <div class="home-date-cell">
+                                        {{ .Date.Format "Jan 2006" }}
+                                    </div>
+                                </div>
                             </div>
                         {{- end -}}
                     </div>
@@ -298,21 +356,25 @@
                     </h2>
                     <div class="home-awards-grid">
                         {{- range $awardPages -}}
-                            <div class="home-badge-cell">
-                                <span style="background-color: #e8e8e8; color: #555; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block;">
-                                    {{ .Params.awardType | default "Award" }}
-                                </span>
-                            </div>
-                            <div>
-                                <span style="font-weight: bold;">
-                                    {{- .Title | emojify -}}
-                                </span>
-                                <span style="color: #6c7a89; margin-left: 0.5rem;">
-                                    @ {{ .Params.venue }}
-                                </span>
-                            </div>
-                            <div class="text-muted">
-                                {{ .Date.Format "Jan 2006" }}
+                            <div class="home-grid-row">
+                                <div class="home-badge-cell">
+                                    <span style="background-color: #e8e8e8; color: #555; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block;">
+                                        {{ .Params.awardType | default "Award" }}
+                                    </span>
+                                </div>
+                                <div class="home-content-cell">
+                                    <div>
+                                        <span style="font-weight: bold;">
+                                            {{- .Title | emojify -}}
+                                        </span>
+                                        <span style="color: #6c7a89; margin-left: 0.5rem;">
+                                            @ {{ .Params.venue }}
+                                        </span>
+                                    </div>
+                                    <div class="home-date-cell">
+                                        {{ .Date.Format "Jan 2006" }}
+                                    </div>
+                                </div>
                             </div>
                         {{- end -}}
                     </div>
