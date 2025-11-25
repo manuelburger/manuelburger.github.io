@@ -33,12 +33,15 @@
             display: grid;
             grid-template-columns: auto 1fr;
             gap: 0;
-            align-items: start;
+            align-items: stretch;
         }
         .home-grid-row {
             display: contents;
         }
-        .home-grid-row .home-badge-cell,
+        .home-grid-row .home-badge-cell {
+            padding: 1rem 2rem 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
         .home-grid-row .home-content-cell {
             padding: 1rem 0;
             border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -52,8 +55,8 @@
             border-bottom-color: rgba(255,255,255,0.1);
         }
         .home-badge-cell {
-            justify-self: center;
-            padding-right: 1.5rem;
+            display: flex;
+            align-items: flex-start;
         }
         .home-content-cell {
             display: flex;
