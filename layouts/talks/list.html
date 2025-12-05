@@ -103,10 +103,16 @@
                                     {{ .Params.event }}
                                 </span>
                                 <br>
-                                <span style="color: #6c7a89;">
-                                    <i class="fas fa-map-marker-alt" style="margin-right: 0.25rem;"></i>
-                                    {{ .Params.venue }}{{ if .Params.location }}, {{ .Params.location }}{{ end }}
-                                </span>
+                                {{- if or .Params.venue .Params.location -}}
+                                    <span style="color: #6c7a89;">
+                                        <i class="fas fa-map-marker-alt" style="margin-right: 0.25rem;"></i>
+                                        {{- if and .Params.venue .Params.location -}}
+                                            {{ .Params.venue }}, {{ .Params.location }}
+                                        {{- else -}}
+                                            {{ .Params.venue }}{{ .Params.location }}
+                                        {{- end -}}
+                                    </span>
+                                {{- end -}}
                                 {{- if .Params.description -}}
                                     <br>
                                     <span style="color: grey; font-size: 0.95rem;">{{ .Params.description }}</span>

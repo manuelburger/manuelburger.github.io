@@ -5,7 +5,7 @@ draft: false
 
 # Award-specific fields
 awardType: "Best Paper"
-venue: "AIM-FM @ NeurIPS 2024"
+venue: "AIM-FM, NeurIPS 2024"
 description: "Best paper award for the paper 'Towards Foundation Models for Critical Care Time Series'"
 link: ""
 

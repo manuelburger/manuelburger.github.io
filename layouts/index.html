@@ -321,9 +321,15 @@
                                     </div>
                                     <div>
                                         <span style="color: darkcyan;">{{ .Params.event }}</span>
-                                        <span style="color: #6c7a89;">
-                                            @ {{ .Params.venue }}{{ if .Params.location }}, {{ .Params.location }}{{ end }}
-                                        </span>
+                                        {{- if or .Params.venue .Params.location -}}
+                                            <span style="color: #6c7a89;">
+                                                @ {{ if and .Params.venue .Params.location }}
+                                                    {{ .Params.venue }}, {{ .Params.location }}
+                                                {{ else }}
+                                                    {{ .Params.venue }}{{ .Params.location }}
+                                                {{ end }}
+                                            </span>
+                                        {{- end -}}
                                     </div>
                                     <div class="home-date-cell">
                                         {{ .Date.Format "Jan 2006" }}
@@ -374,6 +380,11 @@
                                             @ {{ .Params.venue }}
                                         </span>
                                     </div>
+                                    {{- if .Params.description -}}
+                                        <div style="color: grey; font-size: 0.8rem; margin-top: 0.25rem;">
+                                            {{ .Params.description }}
+                                        </div>
+                                    {{- end -}}
                                     <div class="home-date-cell">
                                         {{ .Date.Format "Jan 2006" }}
                                     </div>
