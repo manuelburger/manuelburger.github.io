@@ -20,7 +20,7 @@ A core aspect of my work involves bridging the gap between cutting-edge machine 
 
 Looking forward, I am exploring how to make foundation models more accessible and interactive for clinicians through conversational AI interfaces — working toward digital patient twins that enable intuitive exploration of complex temporal health data.
 
-I joined the [Biomedical Informatics Group](https://bmi.inf.ethz.ch) at ETH Zürich in 2022. Get in touch [here](https://bmi.inf.ethz.ch/people/person/manuel-burger) and learn more about open project proposals [here](https://bmi.inf.ethz.ch/bsc-msc).
+I joined the [Biomedical Informatics Group](https://bmi.inf.ethz.ch) at ETH Zürich in 2022. Get in touch [here](https://bmi.inf.ethz.ch/people/person/manuel-burger) and learn more about open project proposals [here](https://bmi.inf.ethz.ch/bsc-msc). My work has been recognized with the 2026 Apple Scholars in AI/ML fellowship.
 
 ## Interests
 

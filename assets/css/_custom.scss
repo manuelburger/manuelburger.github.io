@@ -7,4 +7,18 @@
 header .logo {
   min-height: 1.2em;
   height: 1.2em;
+  vertical-align: middle;
+}
+
+// Vertically center logo and name in the header title.
+// The theme wraps the name in an inline div with `top: -4px` to visually
+// balance the default 1.5em logo; with the smaller logo above, align via flex
+// and neutralize that offset.
+.header-title > a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-title > a > div[style*="top: -4px"] {
+  top: 0 !important;
 }
